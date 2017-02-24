@@ -23,13 +23,13 @@ apt-get install -y openssl
 
 # Introduce pyenv
 echo "Installing pyenv and virtualenv..."
-sudo -u $1 cd /usr/local/
-git clone git://github.com/yyuu/pyenv.git ./pyenv
-mkdir -p ./pyenv/versions ./pyenv/shims
+# sudo -u $1 cd /usr/local/
+git clone git://github.com/yyuu/pyenv.git /usr/local/pyenv
+mkdir -p /usr/local/pyenv/versions /usr/local/pyenv/shims
 
 # Introduce pyenv virtualenv
-sudo -u $1 cd /usr/local/pyenv/plugins/
-git clone git://github.com/yyuu/pyenv-virtualenv.git
+# sudo -u $1 cd /usr/local/pyenv/plugins/
+git clone git://github.com/yyuu/pyenv-virtualenv.git /usr/local/pyenv/plugins/pyenv-virtualenv
 
 # Rewrite paths
 sudo -u $1 echo 'export PYENV_ROOT="/usr/local/pyenv"' | tee -a /etc/profile.d/pyenv.sh
