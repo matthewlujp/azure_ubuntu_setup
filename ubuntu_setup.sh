@@ -18,8 +18,8 @@ apt-get install -y libsqlite3-dev
 apt-get install -y openssl
 
 # Generate SSH key
-echo "Generate SSH key ..."
-ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -P ""
+# echo "Generate SSH key ..."
+# ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -P ""
 
 # Introduce pyenv
 echo "Installing pyenv and virtualenv..."
@@ -33,9 +33,9 @@ git clone git://github.com/yyuu/pyenv-virtualenv.git
 
 # Rewrite paths
 sudo -u $1 echo 'export PYENV_ROOT="/usr/local/pyenv"' | tee -a /etc/profile.d/pyenv.sh
-echo 'export PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"' | tee -a /etc/profile.d/pyenv.sh
+sudo -u $1 echo 'export PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"' | tee -a /etc/profile.d/pyenv.sh
 # Initialize
-source /etc/profile.d/pyenv.sh
+sudo -u $1 source /etc/profile.d/pyenv.sh
 
 echo 'Add following to /etc/sudoers...\
 #Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin
@@ -43,6 +43,6 @@ Defaults    env_keep += "PATH"
 Defaults    env_keep += "PYENV_ROOT"'
 
 # Install Python 3.6.0 with pyenv
-echo "Creating virtualenv with Python 3.6.0 ..."
-prenv install 3.6.0
-pyenv virtualenv 3.6.0 'machine_learning'
+# echo "Creating virtualenv with Python 3.6.0 ..."
+# prenv install 3.6.0
+# pyenv virtualenv 3.6.0 'machine_learning'
