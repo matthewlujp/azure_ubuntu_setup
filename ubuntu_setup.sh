@@ -16,6 +16,9 @@ apt-get install libreadline-dev
 apt-get install libsqlite3-dev
 apt-get install openssl
 
+# Generate SSH key
+ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -P ""
+
 # Introduce pyenv
 sudo -u $1 cd /usr/local/
 git clone git://github.com/yyuu/pyenv.git ./pyenv
